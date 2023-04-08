@@ -27,7 +27,6 @@ namespace ExamPreparation
             public string gender { get; set; }
 
         }
-        public static List<childrens> ListOfChildrens = new List<childrens>();
         public static List<childrens> ReadChildrens(string path)
         {
             using (StreamReader reader = new StreamReader(path))
@@ -39,7 +38,7 @@ namespace ExamPreparation
                     string[] fields = line.Split(',');
                     try
                     {
-                        ListOfChildrens.Add(new childrens { name = fields[0], birthday = fields[1], gender = fields[2] });
+                        ListOfChildrens.Add(new childrens { name = fields[0].Replace("\"", ""), birthday = fields[1].Replace("\"", ""), gender = fields[2].Replace("\"", "") });
                     }
                     catch (Exception)
                     {
@@ -49,14 +48,19 @@ namespace ExamPreparation
             }
             return ListOfChildrens;
         }
+        public static List<childrens> ListOfChildrens = new List<childrens>();
         public static List<childrens> PremierGroup = new List<childrens>();
         public static List<childrens> SecondGroup = new List<childrens>();
         public static List<childrens> ThirdGroup = new List<childrens>();
         public static List<childrens> FourthGroup = new List<childrens>();
         public static List<childrens> Boys = new List<childrens>();
         public static List<childrens> Girls = new List<childrens>();
-        public static void SortChildrens(List<childrens> Childrens)
+        public static void SortChildrensByGroupes(List<childrens> Childrens)
         {
+            PremierGroup.Clear();
+            SecondGroup.Clear();
+            ThirdGroup.Clear();
+            FourthGroup.Clear();
             try
             {
                 foreach (var item in Childrens)
@@ -85,6 +89,29 @@ namespace ExamPreparation
             WriteChildrens(SecondGroup, GetPath("Second.txt"));
             WriteChildrens(ThirdGroup, GetPath("Third.txt"));
             WriteChildrens(FourthGroup, GetPath("Fourth.txt"));
+        }
+        public static void SortChildrensByGender(List<childrens> Childrens)
+        {
+            Girls.Clear();
+            Boys.Clear();
+            try
+            {
+                foreach (var item in Childrens)
+                {
+                    if (item.gender == "Мальчик")
+                    {
+                        Boys.Add(item);
+                    }
+                    else if (item.gender == "Девочка")
+                    {
+                        Girls.Add(item);
+                    }
+                }
+            }
+            catch (Exception)
+            { }
+            WriteChildrens(Boys, GetPath("Boys.txt"));
+            WriteChildrens(Girls, GetPath("Girls.txt"));
         }
         public static void WriteChildrens(List<childrens> Premier, string path)
         {

@@ -5,14 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ExamPreparation.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="1000"
       Title="MainPage">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition />
+            <RowDefinition Height="30"/>
             <RowDefinition/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -20,62 +23,104 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="Premier" AutoGenerateColumns="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=3}" Grid.Column="0" Grid.Row="1" Margin="5">
-            <DataGrid.Columns>
-                <DataGridTextColumn
-                    Header="Имя"
-                    Binding="{Binding name}"
-                    />
-                <DataGridTextColumn
-                    Header="Возраст"
-                    Binding="{Binding birthday}"/>
-                <DataGridTextColumn
-                    Header="Имя"
-                    Binding="{Binding gender}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <DataGrid x:Name="Second" AutoGenerateColumns="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=3}" Grid.Column="1" Grid.Row="1" Margin="5">
-            <DataGrid.Columns>
-                <DataGridTextColumn
-                    Header="Имя"
-                    Binding="{Binding name}"
-                    />
-                <DataGridTextColumn
-                    Header="Возраст"
-                    Binding="{Binding birthday}"/>
-                <DataGridTextColumn
-                    Header="Имя"
-                    Binding="{Binding gender}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <DataGrid x:Name="Third" AutoGenerateColumns="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=3}" Grid.Column="2" Grid.Row="1" Margin="5">
-            <DataGrid.Columns>
-                <DataGridTextColumn
-                    Header="Имя"
-                    Binding="{Binding name}"
-                    />
-                <DataGridTextColumn
-                    Header="Возраст"
-                    Binding="{Binding birthday}"/>
-                <DataGridTextColumn
-                    Header="Имя"
-                    Binding="{Binding gender}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <DataGrid x:Name="Fourth" AutoGenerateColumns="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=3}" Grid.Column="3" Grid.Row="1" Margin="5">
+        <Label Content="Первая группа" Grid.Row="1" Grid.Column="0"/>
+        <Label Content="Вторая группа" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Третья группа" Grid.Row="1" Grid.Column="2"/>
+        <Label Content="Четвертая группа" Grid.Row="1" Grid.Column="3"/>
+        <Label Content="Мальчики" Grid.Row="3" Grid.Column="0"/>
+        <Label Content="Девочки" Grid.Row="3" Grid.Column="1"/>
+        <Label Content="Общий список" Grid.Row="3" Grid.Column="2"/>
+        <DataGrid x:Name="Premier" AutoGenerateColumns="False" IsReadOnly="True" Grid.Column="0" Grid.Row="2" Margin="5">
             <DataGrid.Columns>
                 <DataGridTextColumn
                     Header="Имя"
                     Binding="{Binding name}"/>
                 <DataGridTextColumn
-                    Header="Возраст"
+                    Header="Дата рождения"
                     Binding="{Binding birthday}"/>
                 <DataGridTextColumn
+                    Header="Пол"
+                    Binding="{Binding gender}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="Second" AutoGenerateColumns="False" IsReadOnly="True" Grid.Column="1" Grid.Row="2" Margin="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn
                     Header="Имя"
+                    Binding="{Binding name}"/>
+                <DataGridTextColumn
+                    Header="Дата рождения"
+                    Binding="{Binding birthday}"/>
+                <DataGridTextColumn
+                    Header="Пол"
+                    Binding="{Binding gender}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="Third" AutoGenerateColumns="False" IsReadOnly="True" Grid.Column="2" Grid.Row="2" Margin="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Имя"
+                    Binding="{Binding name}"/>
+                <DataGridTextColumn
+                    Header="Дата рождения"
+                    Binding="{Binding birthday}"/>
+                <DataGridTextColumn
+                    Header="Пол"
+                    Binding="{Binding gender}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="Fourth" AutoGenerateColumns="False" IsReadOnly="True"  Grid.Column="3" Grid.Row="2" Margin="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Имя"
+                    Binding="{Binding name}"/>
+                <DataGridTextColumn
+                    Header="Дата рождения"
+                    Binding="{Binding birthday}"/>
+                <DataGridTextColumn
+                    Header="Пол"
+                    Binding="{Binding gender}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="Boys" AutoGenerateColumns="False" IsReadOnly="True" Grid.Column="0" Grid.Row="4" Margin="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Имя"
+                    Binding="{Binding name}"/>
+                <DataGridTextColumn
+                    Header="Дата рождения"
+                    Binding="{Binding birthday}"/>
+                <DataGridTextColumn
+                    Header="Пол"
+                    Binding="{Binding gender}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="Girls" AutoGenerateColumns="False" IsReadOnly="True" Grid.Column="1" Grid.Row="4" Margin="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Имя"
+                    Binding="{Binding name}"/>
+                <DataGridTextColumn
+                    Header="Дата рождения"
+                    Binding="{Binding birthday}"/>
+                <DataGridTextColumn
+                    Header="Пол"
+                    Binding="{Binding gender}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="AllChildrens" AutoGenerateColumns="False" IsReadOnly="True" Grid.Column="2" Grid.Row="4" Margin="5" d:ItemsSource="{d:SampleData ItemCount=10}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Имя"
+                    Binding="{Binding name}"/>
+                <DataGridTextColumn
+                    Header="Дата рождения"
+                    Binding="{Binding birthday}"/>
+                <DataGridTextColumn
+                    Header="Пол"
                     Binding="{Binding gender}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Выбрать файл" Style="{DynamicResource ButtonStyle}" Click="Button_Click" Grid.Column="3" />
-        <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Сохранить" Style="{DynamicResource ButtonStyle}" Grid.Column="0" Grid.Row="2" Click="SavePremierClick" />
     </Grid>
 </Page>

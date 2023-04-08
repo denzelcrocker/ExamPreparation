@@ -25,24 +25,31 @@ namespace ExamPreparation.Pages
         public MainPage()
         {
             InitializeComponent();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Premier.ItemsSource = null;
+            Second.ItemsSource = null;
+            Third.ItemsSource = null;
+            Fourth.ItemsSource = null;
+            Girls.ItemsSource = null;
+            Boys.ItemsSource = null;
             string path = Modules.OpenDialog();
             List<Modules.childrens> Childrens = Modules.ReadChildrens(path);
-            Modules.SortChildrens(Childrens);
-            Childrens.Clear();
+            Modules.SortChildrensByGroupes(Childrens);
+            Modules.SortChildrensByGender(Childrens);
             Premier.ItemsSource = Modules.PremierGroup;
             Second.ItemsSource = Modules.SecondGroup;
             Third.ItemsSource = Modules.ThirdGroup;
             Fourth.ItemsSource = Modules.FourthGroup;
+            Girls.ItemsSource = Modules.Girls;
+            Boys.ItemsSource = Modules.Boys;
+            AllChildrens.ItemsSource = Modules.ListOfChildrens;
+            Childrens.Clear();
 
         }
 
-        private void SavePremierClick(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
 }
