@@ -36,6 +36,7 @@ namespace ExamPreparation.Pages
             Fourth.ItemsSource = null;
             Girls.ItemsSource = null;
             Boys.ItemsSource = null;
+            AllChildrens.ItemsSource = null;
             string path = Modules.OpenDialog();
             List<Modules.childrens> Childrens = Modules.ReadChildrens(path);
             Modules.SortChildrensByGroupes(Childrens);
@@ -47,7 +48,6 @@ namespace ExamPreparation.Pages
             Girls.ItemsSource = Modules.Girls;
             Boys.ItemsSource = Modules.Boys;
             AllChildrens.ItemsSource = Modules.ListOfChildrens;
-            Childrens.Clear();
 
         }
 

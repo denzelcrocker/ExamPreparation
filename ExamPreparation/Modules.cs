@@ -11,7 +11,7 @@ namespace ExamPreparation
     {
         public static string OpenDialog()
         {
-            string path = null;
+            string path = "";
             Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
             Nullable<bool> result = openFileDlg.ShowDialog();
             if (result == true)
@@ -29,23 +29,28 @@ namespace ExamPreparation
         }
         public static List<childrens> ReadChildrens(string path)
         {
-            using (StreamReader reader = new StreamReader(path))
+            ListOfChildrens.Clear();
+            try
             {
-
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                using (StreamReader reader = new StreamReader(path))
                 {
-                    string[] fields = line.Split(',');
-                    try
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
                     {
-                        ListOfChildrens.Add(new childrens { name = fields[0].Replace("\"", ""), birthday = fields[1].Replace("\"", ""), gender = fields[2].Replace("\"", "") });
-                    }
-                    catch (Exception)
-                    {
-                        break;
+                        string[] fields = line.Split(',');
+                        try
+                        {
+                            ListOfChildrens.Add(new childrens { name = fields[0].Replace("\"", ""), birthday = fields[1].Replace("\"", ""), gender = fields[2].Replace("\"", "") });
+                        }
+                        catch (Exception)
+                        {
+                            break;
+                        }
                     }
                 }
+                
             }
+            catch { }
             return ListOfChildrens;
         }
         public static List<childrens> ListOfChildrens = new List<childrens>();
@@ -115,7 +120,6 @@ namespace ExamPreparation
         }
         public static void WriteChildrens(List<childrens> Premier, string path)
         {
-            
             using (StreamWriter writer = new StreamWriter(File.Create(path)))
             {
 
